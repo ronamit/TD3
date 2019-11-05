@@ -4,11 +4,6 @@ import gym
 import argparse
 import os
 
-import utils
-import TD3
-import OurDDPG
-import DDPG
-
 
 # Runs policy for X episodes and returns average reward
 # A fixed seed is used for the eval environment
@@ -88,7 +83,7 @@ if __name__ == "__main__":
 		kwargs["policy_noise"] = args.policy_noise * max_action
 		kwargs["noise_clip"] = args.noise_clip * max_action
 		kwargs["policy_freq"] = args.policy_freq
-		policy = TD3.TD3(**kwargs)
+		policy = Gym_Runs.TD3.TD3(**kwargs)
 	elif args.policy == "OurDDPG":
 		policy = OurDDPG.DDPG(**kwargs)
 	elif args.policy == "DDPG":
